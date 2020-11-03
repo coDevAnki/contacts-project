@@ -1,0 +1,20 @@
+.header_container {
+  background-color: blanchedalmond;
+  height: 10vh;
+  padding: 20px;
+  display: flex;
+  border-bottom: 1.5px solid grey;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-right: auto;
+}
+.menu_item,
+.menu_item:active,
+.menu_item:focus {
+  text-decoration: none;
+  font-size: 1.6rem;
+  margin: 0.5em 1em;
+  color: maroon;
+}
