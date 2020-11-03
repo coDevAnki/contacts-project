@@ -3,7 +3,6 @@ import { Button, FormInput } from "../../custom-components";
 import "./RegisterUi.css";
 
 const RegisterUI = ({ form: { form, onChange, isFormValid } }) => {
-  const isDisabled = isFormValid ? "disabled" : "";
   return (
     <form className="form_holder">
       <FormInput
