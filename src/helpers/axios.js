@@ -7,11 +7,12 @@ console.log(baseURL);
 let headers = {};
 
 if (localStorage.token) {
+  console.log("token " + localStorage.token);
   headers.Authorization = `Bearer ${localStorage.token}`;
 }
 
 const axiosInstance = axios.create({
-  baseURL: baseURL,
+  baseURL: "https://truly-contacts.herokuapp.com/api",
   headers,
 });
 

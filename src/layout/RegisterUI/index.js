@@ -2,9 +2,18 @@ import React from "react";
 import { Button, FormInput } from "../../custom-components";
 import "./RegisterUi.css";
 
-const RegisterUI = ({ form: { form, onChange, isFormValid } }) => {
+const RegisterUI = ({
+  form: {
+    form,
+    onChange,
+    isRegisterFormValid,
+    loading,
+    onRegisterSubmit,
+    fieldErrors,
+  },
+}) => {
   return (
-    <form className="form_holder">
+    <form className="form_holder" onSubmit={onRegisterSubmit}>
       <FormInput
         id="userName"
         name="userName"
@@ -12,6 +21,7 @@ const RegisterUI = ({ form: { form, onChange, isFormValid } }) => {
         onChange={onChange}
         type="text"
         label="User Name"
+        error={fieldErrors?.username || ""}
       />
       <FormInput
         id="firstName"
@@ -20,6 +30,7 @@ const RegisterUI = ({ form: { form, onChange, isFormValid } }) => {
         onChange={onChange}
         type="text"
         label="First Name"
+        error={fieldErrors?.first_name || ""}
       />
       <FormInput
         id="lastName"
@@ -28,6 +39,7 @@ const RegisterUI = ({ form: { form, onChange, isFormValid } }) => {
         onChange={onChange}
         type="text"
         label="Last Name"
+        error={fieldErrors?.last_name || ""}
       />
       <FormInput
         id="email"
@@ -36,6 +48,7 @@ const RegisterUI = ({ form: { form, onChange, isFormValid } }) => {
         onChange={onChange}
         type="text"
         label="Email"
+        error={fieldErrors?.email || ""}
       />
       <FormInput
         id="password"
@@ -44,8 +57,20 @@ const RegisterUI = ({ form: { form, onChange, isFormValid } }) => {
         onChange={onChange}
         type="text"
         label="Password"
+        error={fieldErrors?.password || ""}
       />
-      <Button type="submit">Submit</Button>
+
+      {loading ? (
+        <Button type="submit" disabled>
+          Loading...
+        </Button>
+      ) : isRegisterFormValid ? (
+        <Button type="submit">Submit</Button>
+      ) : (
+        <Button type="submit" disabled>
+          Submit
+        </Button>
+      )}
     </form>
   );
 };

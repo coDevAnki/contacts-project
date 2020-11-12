@@ -6,7 +6,6 @@ import { GlobalProvider } from "./context/Provider";
 import routes from "./routes";
 
 function App() {
-  console.log(routes);
   return (
     <GlobalProvider>
       <BrowserRouter>

@@ -1,0 +1,16 @@
+.form_holder {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30vw;
+}
+.invalid {
+  box-sizing: border-box;
+  width: 30vw;
+  color: red;
+
+  font-size: 1.5rem;
+  padding: 1rem;
+}
