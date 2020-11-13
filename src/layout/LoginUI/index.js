@@ -1,5 +1,11 @@
 import React from "react";
-import { Button, FormInput } from "../../custom-components";
+import { Link } from "react-router-dom";
+import {
+  Button,
+  FormHeader,
+  FormInput,
+  Segment,
+} from "../../custom-components";
 import "./LoginUi.css";
 
 const LoginUI = ({
@@ -7,15 +13,16 @@ const LoginUI = ({
     form,
     onChange,
     isLoginFormValid,
-    loading,
+    authLoading,
     onLoginSubmit,
     fieldErrors,
   },
 }) => {
   return (
     <form className="form_holder" onSubmit={onLoginSubmit}>
+      <FormHeader>Log In to your account</FormHeader>
       {fieldErrors ? (
-        <div className="invalid">{fieldErrors?.detail}</div>
+        <span className="invalid">{fieldErrors?.detail}</span>
       ) : null}
       <FormInput
         id="userName"
@@ -35,7 +42,7 @@ const LoginUI = ({
         label="Password"
       />
 
-      {loading ? (
+      {authLoading ? (
         <Button type="submit" disabled>
           Loading...
         </Button>
@@ -46,6 +53,9 @@ const LoginUI = ({
           Submit
         </Button>
       )}
+      <Segment>
+        need an account ? <Link to="/auth/register">Register</Link>
+      </Segment>
     </form>
   );
 };

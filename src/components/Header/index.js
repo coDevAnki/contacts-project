@@ -1,19 +1,47 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-// import Button from "../../custom-components/Button";
+import React, { useContext } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import { logout } from "../../context/actions/auth/logoutAction";
+import { GlobalContext } from "../../context/Provider";
+import isAuthenticated from "../../utils/isAuthenticated";
 import "./header.css";
 const Header = () => {
   const { pathname } = useLocation();
+  const history = useHistory();
+  const { contactsDispatch, authState, authDispatch } = useContext(
+    GlobalContext
+  );
+
+  const logoutUser = () => {
+    let combinedispatch = (action) => {
+      contactsDispatch(action);
+      authDispatch(action);
+    };
+    logout(history)(combinedispatch);
+  };
 
   return (
     <div className="header_container">
       <div className="title">People&Pals</div>
 
-      <Link className="menu_item" to="/contacts/create">
-        Create Contact
-      </Link>
-
-      <Link className="menu_item">Log Out</Link>
+      {isAuthenticated() ? (
+        <>
+          <Link className="menu_item" to="/contacts/create">
+            Create Contact
+          </Link>
+          <div className="menu_item" onClick={logoutUser}>
+            Log Out
+          </div>
+        </>
+      ) : pathname === "/auth/login" || pathname === "/auth/register" ? null : (
+        <>
+          <Link className="menu_item" to="/auth/register">
+            Register
+          </Link>
+          <Link className="menu_item" to="/auth/login">
+            Sign In
+          </Link>
+        </>
+      )}
     </div>
   );
 };

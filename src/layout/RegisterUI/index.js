@@ -1,5 +1,11 @@
 import React from "react";
-import { Button, FormInput } from "../../custom-components";
+import { Link } from "react-router-dom";
+import {
+  Button,
+  FormHeader,
+  FormInput,
+  Segment,
+} from "../../custom-components";
 import "./RegisterUi.css";
 
 const RegisterUI = ({
@@ -7,13 +13,14 @@ const RegisterUI = ({
     form,
     onChange,
     isRegisterFormValid,
-    loading,
+    authLoading,
     onRegisterSubmit,
     fieldErrors,
   },
 }) => {
   return (
     <form className="form_holder" onSubmit={onRegisterSubmit}>
+      <FormHeader>Register here</FormHeader>
       <FormInput
         id="userName"
         name="userName"
@@ -60,7 +67,7 @@ const RegisterUI = ({
         error={fieldErrors?.password || ""}
       />
 
-      {loading ? (
+      {authLoading ? (
         <Button type="submit" disabled>
           Loading...
         </Button>
@@ -71,6 +78,9 @@ const RegisterUI = ({
           Submit
         </Button>
       )}
+      <Segment>
+        already have an account ? <Link to="/auth/login">log in</Link>
+      </Segment>
     </form>
   );
 };

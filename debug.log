@@ -1,3 +1,7 @@
 [1103/101748.634:ERROR:crash_report_database_win.cc(457)] unexpected header
 [1103/102236.291:ERROR:crash_report_database_win.cc(457)] unexpected header
 [1103/105026.700:ERROR:crash_report_database_win.cc(457)] unexpected header
+[1112/151704.053:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1112/173634.465:ERROR:process_info.cc(359)] UncheckedAllocate
+[1112/173734.590:ERROR:process_info.cc(359)] UncheckedAllocate
+[1112/181214.353:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

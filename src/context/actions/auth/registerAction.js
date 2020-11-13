@@ -17,7 +17,7 @@ export const register = (form) => async (dispatch) => {
       password,
     } = form;
 
-    let res = await axiosInstance.post("/auth/register", {
+    let res = await axiosInstance().post("/auth/register", {
       first_name,
       last_name,
       username,

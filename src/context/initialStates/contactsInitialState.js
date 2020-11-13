@@ -1,10 +1,12 @@
 const contactsInitialState = {
   contacts: {
     loading: false,
-    user: null,
+    data: [],
+    error: null,
   },
   addContact: {
     loading: false,
+    data: null,
     error: null,
   },
 };
