@@ -1,4 +1,5 @@
 import {
+  CLEAR_CREATE_CONTACT,
   CONTACTS_ERROR,
   CONTACTS_LOADING,
   CONTACTS_SUCCESS,
@@ -72,6 +73,16 @@ const contactsReducer = (state = {}, { type, payload }) => {
           ...state.addContact,
           loading: false,
           error: payload,
+        },
+      };
+    case CLEAR_CREATE_CONTACT:
+      return {
+        ...state,
+        addContact: {
+          ...state.addContact,
+          loading: false,
+          error: null,
+          data: null,
         },
       };
     default:

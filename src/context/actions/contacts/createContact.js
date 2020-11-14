@@ -30,6 +30,9 @@ export const createContact = (form) => async (dispatch) => {
     let data = await res.data;
     if (data) dispatch({ type: CREATE_CONTACT_SUCCESS, payload: data });
   } catch (err) {
-    dispatch({ type: CREATE_CONTACT_ERROR, payload: err });
+    dispatch({
+      type: CREATE_CONTACT_ERROR,
+      payload: err.response ? err.response.data : "Could not connect",
+    });
   }
 };

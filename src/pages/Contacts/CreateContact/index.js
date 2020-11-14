@@ -1,11 +1,11 @@
 import React from "react";
-import useForm from "../../../custom-hooks/useForm";
+import useCreateContactForm from "../../../custom-hooks/useCreateContactForm";
 import CreateContactUI from "../../../layout/CreateContactUI";
 
 const CreateContactPage = () => {
   return (
     <div>
-      <CreateContactUI form={useForm()} />
+      <CreateContactUI form={useCreateContactForm()} />
     </div>
   );
 };
