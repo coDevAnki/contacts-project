@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { clearCreateContact } from "../context/actions/contacts/clearCreateContact";
 import { createContact } from "../context/actions/contacts/createContact";
@@ -6,7 +6,8 @@ import { GlobalContext } from "../context/Provider";
 import useForm from "./useForm";
 
 const useCreateContactForm = () => {
-  const { form, onChange, fieldErrors } = useForm();
+  const { form, setForm, onChange, fieldErrors } = useForm();
+  const [tempPreviewImgUrl, setTempPreviewImgUrl] = useState(null);
   const history = useHistory();
 
   const {
@@ -57,6 +58,23 @@ const useCreateContactForm = () => {
     }
   };
 
+  const onImageChange = (e) => {
+    e.persist();
+
+    let imgFile = e.target.files[0];
+    if (imgFile) {
+      setForm({ ...form, contactPicture: imgFile });
+    }
+    let tempImgUrl = URL.createObjectURL(imgFile);
+
+    setTempPreviewImgUrl(tempImgUrl);
+  };
+
+  const removeImage = () => {
+    setForm({ ...form, contactPicture: null });
+    setTempPreviewImgUrl(null);
+  };
+
   return {
     form,
     onChange,
@@ -64,6 +82,9 @@ const useCreateContactForm = () => {
     createContactLoading,
     isCreateContactFormValid,
     onCreateContactFormSubmit,
+    onImageChange,
+    tempPreviewImgUrl,
+    removeImage,
   };
 };
 

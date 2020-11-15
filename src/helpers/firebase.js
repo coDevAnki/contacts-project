@@ -14,4 +14,5 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const storage = firebase.storage();
+export const FIREBASE_IMAGE_REF = "contact-image";
 export default firebase;

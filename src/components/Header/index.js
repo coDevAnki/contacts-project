@@ -21,7 +21,9 @@ const Header = () => {
 
   return (
     <div className="header_container">
-      <div className="title">People&Pals</div>
+      <Link to="/" className="title">
+        People&Pals
+      </Link>
 
       {isAuthenticated() ? (
         <>

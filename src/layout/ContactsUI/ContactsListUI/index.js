@@ -1,4 +1,5 @@
 import React from "react";
+import { ImageThumb } from "../../../custom-components/";
 import "./ContactsListUI.css";
 
 const ContactsListUI = ({
@@ -11,10 +12,10 @@ const ContactsListUI = ({
   return (
     <div className="contact_container">
       <div>
-        <img
+        <ImageThumb
+          firstName={first_name}
+          lastName={last_name}
           src={contact_picture}
-          style={{ width: "100px", height: "100px", borderRadius: "50%" }}
-          alt=""
         />
         {first_name} {last_name}
       </div>

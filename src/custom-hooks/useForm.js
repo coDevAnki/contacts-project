@@ -72,6 +72,7 @@ const useForm = () => {
 
   return {
     form,
+    setForm,
     onChange,
     isRegisterFormValid,
     onRegisterSubmit,

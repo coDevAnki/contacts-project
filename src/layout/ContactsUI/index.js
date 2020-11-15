@@ -9,6 +9,7 @@ const ContactsUI = ({
 }) => {
   return (
     <div className="contactslist_container">
+      {loading && <div>Loading Contacts...</div>}
       {data.map(({ id, ...contact }) => (
         <ContactsListUI {...contact} key={contact.id} />
       ))}
