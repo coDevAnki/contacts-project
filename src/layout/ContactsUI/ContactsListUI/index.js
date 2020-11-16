@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageThumb } from "../../../custom-components/";
+import { IconButton, ImageThumb } from "../../../custom-components/";
 import "./ContactsListUI.css";
 
 const ContactsListUI = ({
@@ -8,6 +8,10 @@ const ContactsListUI = ({
   contact_picture,
   country_code,
   phone_number,
+  is_favorite,
+  id,
+  handleDeleteContact,
+  handleStaring,
 }) => {
   return (
     <div className="contact_container">
@@ -18,8 +22,16 @@ const ContactsListUI = ({
           src={contact_picture}
         />
         {first_name} {last_name}
+        {is_favorite && (
+          <i className={"fas fa-heart"} style={{ color: "red" }}></i>
+        )}
       </div>
       <span>{country_code + " - " + phone_number}</span>
+      {/* <i className="fas fa-trash" onClick={() => handleDeleteContact(id)}></i> */}
+      <IconButton onClick={() => handleDeleteContact(id)} icon="trash" />
+      <button onClick={() => handleStaring(id, !is_favorite)}>
+        {is_favorite ? "UNSTAR" : "STAR"}
+      </button>
     </div>
   );
 };

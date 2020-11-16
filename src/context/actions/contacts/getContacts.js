@@ -9,7 +9,7 @@ export const getContacts = (history) => async (dispatch) => {
   try {
     dispatch({ type: CONTACTS_LOADING });
     let res = await axiosInstance(history).get("/contacts/");
-    let data = await res.data;
+    let data = res.data;
     dispatch({ type: CONTACTS_SUCCESS, payload: data });
   } catch (err) {
     dispatch({

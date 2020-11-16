@@ -9,7 +9,12 @@ const Contacts = () => {
   const history = useHistory();
 
   useEffect(() => {
-    getContacts(history)(contactsDispatch);
+    const {
+      contacts: { data },
+    } = contactsState;
+    if (data.length === 0) {
+      getContacts(history)(contactsDispatch);
+    }
   }, []);
 
   return <ContactsUI state={contactsState} />;

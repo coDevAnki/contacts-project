@@ -1,7 +1,5 @@
 .create_contact_form_holder {
   width: 70%;
-  display: grid;
-  grid-template-columns: repeat(2fr, 1fr 1fr);
   position: relative;
   margin: auto;
 }

@@ -32,7 +32,7 @@ const useForm = () => {
         if (Array.isArray(item)) {
           setFieldErrors({ ...fieldErrors, [item]: authError[item][0] });
         } else {
-          setFieldErrors({ ...fieldErrors, ...authError });
+          setFieldErrors({ ...fieldErrors, authError });
           break;
         }
       }

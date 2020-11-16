@@ -67,7 +67,12 @@ const CreateContactUI = ({
         label="Country"
       />
 
-      <FormInput onChange={onChange} name="phoneNumber" label="PhoneNumber" />
+      <FormInput
+        onChange={onChange}
+        type="tel"
+        name="phoneNumber"
+        label="PhoneNumber"
+      />
       <FormInput
         onChange={onChange}
         name="isFavourite"
